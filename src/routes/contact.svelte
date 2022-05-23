@@ -32,14 +32,15 @@
 
       response = await submit.json();
       outcome = response;
+      console.log(outcome.message);
 
       name = '';
       email = '';
       message = '';
     } catch (error) {
       outcome.status = 500;
-      outcome.message = 'Server timeout.';
-      console.log(error)
+      outcome.message = 'Server failed to respond.';
+      console.log(error);
     }
 
     processing = false;
