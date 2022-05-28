@@ -9,6 +9,3 @@
 
 <Skills />
 <Projects />
-
-<style lang="scss">
-</style>

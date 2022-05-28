@@ -26,6 +26,7 @@
     "eslint-plugin-svelte3": "^4.0.0",
     "husky": "^8.0.1",
     "lint-staged": "^12.4.1",
+    "mdsvex": "^0.10.6",
     "nodemailer": "^6.7.5",
     "postcss-html": "^1.4.1",
     "prettier": "^2.5.1",
@@ -47,6 +48,7 @@
   "dependencies": {
     "@fontsource/nunito": "^4.5.9",
     "@fontsource/raleway": "^4.5.8",
+    "p-map": "^5.4.0",
     "svelte-icons": "^2.1.0",
     "svelte-inview": "^3.0.0"
   },

@@ -1,12 +1,17 @@
 <script lang="ts">
-  import bigJ from '@images/big-j.svg';
+  import { page } from '$app/stores';
+  import smallJ from '@images/small-j.svg';
 </script>
 
 <div class="container">
   <div class="inner">
-    <img class="image" src={bigJ} alt="" />
+    <a href="/" class:hidden={$page.url.pathname === '/'}>
+      <img class="image" src={smallJ} alt="" />
+    </a>
+
     <nav>
       <a href="/" class="button">Home</a>
+      <a href="/blog" class="button">Blog</a>
       <a href="/contact" class="button">Contact</a>
     </nav>
   </div>
@@ -36,12 +41,8 @@
     align-items: center;
   }
 
-  .image {
+  .hidden {
     visibility: hidden;
-
-    @media (max-width: 767px) {
-      display: none;
-    }
   }
 
   .button {
