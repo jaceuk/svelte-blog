@@ -3,23 +3,22 @@
     fetch: any;
   }
 
-  export const load = async ({ fetch }: IFetch) => {
-    const reponse = await fetch('/api/posts.json');
-    const posts = await reponse.json();
+  export async function load({ fetch }: IFetch) {
+    const response = await fetch('/api/posts.json');
+    const posts = await response.json();
 
     return {
+      status: response.status,
       props: {
         posts: posts,
       },
     };
-  };
+  }
 </script>
 
 <script lang="ts">
   import Card from '@components/Card.svelte';
   export let posts: any;
-
-  console.log(posts);
 </script>
 
 <div class="inner">
@@ -28,7 +27,7 @@
       <h2>
         {post.title}
       </h2>
-      <p>Lorem ipsum dolor sit amet, consectetur, Lorem ipsum dolor.</p>
+      <p>{post.excerpt}</p>
       <a href="blog/{post.slug}" class="button">Read more</a>
     </Card>
   {/each}

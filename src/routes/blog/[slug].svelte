@@ -1,24 +1,24 @@
 <script context="module" lang="ts">
   interface IFetch {
     fetch: any;
+    params: any;
   }
 
-  export const load = async ({ fetch }: IFetch) => {
-    const post = await fetch('/api/post.json');
-    const postData = await post.json();
+  export async function load({ params, fetch }: IFetch) {
+    const response = await fetch(`/api/${params.slug}.json`);
+    const post = await response.json();
 
     return {
+      status: response.status,
       props: {
-        post: postData,
+        post: post,
       },
     };
-  };
+  }
 </script>
 
 <script lang="ts">
   export let post: any;
-
-  // console.log(post);
 </script>
 
-<h2>{post[0].meta.title}</h2>
+<h2>{post.title}</h2>

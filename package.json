@@ -48,7 +48,6 @@
   "dependencies": {
     "@fontsource/nunito": "^4.5.9",
     "@fontsource/raleway": "^4.5.8",
-    "p-map": "^5.4.0",
     "svelte-icons": "^2.1.0",
     "svelte-inview": "^3.0.0"
   },
