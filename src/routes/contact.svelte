@@ -6,13 +6,18 @@
   import Loader from '@components/Loader.svelte';
   import Alert from '@components/Alert.svelte';
 
+  interface IOutcome {
+    status: number;
+    message: string;
+  }
+
   let name: string;
   let email: string;
   let message: string;
 
-  let processing: boolean = false;
-  let response: any;
-  let outcome: any = { status: '', message: '' };
+  let processing = false;
+  let response: IOutcome;
+  let outcome: IOutcome = { status: 0, message: '' };
 
   async function handleSubmit() {
     processing = true;

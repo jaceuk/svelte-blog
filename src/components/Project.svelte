@@ -6,8 +6,24 @@
   import Modal from '@components/Modal.svelte';
   import Card from '@components/Card.svelte';
 
-  export let data: any;
-  export let image: any;
+  interface IData {
+    title: string;
+    type: string;
+    intro: string;
+    text: string;
+    tags: string[];
+    lighthouseScores: string[];
+    image: string;
+    features: IFeature[];
+  }
+
+  interface IFeature {
+    title: string;
+    text: string;
+  }
+
+  export let data: IData;
+  export let image: string;
 
   let showModal = false;
   let infoVisible = false;

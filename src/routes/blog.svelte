@@ -3,7 +3,7 @@
     fetch: any;
   }
 
-  /* @type {import('@sveltejs/kit').Load} */
+  /** @type {import('./__types/[baz]').Load} */
   export async function load({ fetch }: IFetch) {
     const response = await fetch('/api/posts.json');
     const posts = await response.json();
@@ -19,18 +19,21 @@
 
 <script lang="ts">
   import Card from '@components/Card.svelte';
+
   export let posts: any;
 </script>
 
 <div class="inner">
   {#each posts as post}
-    <Card>
-      <h2>
-        {post.title}
-      </h2>
-      <p>{post.excerpt}</p>
-      <a href="blog/{post.slug}" class="button">Read more</a>
-    </Card>
+    <article>
+      <Card>
+        <h2>
+          {post.title}
+        </h2>
+        <p>{post.excerpt}</p>
+        <a href="blog/{post.slug}" class="button">Read more</a>
+      </Card>
+    </article>
   {/each}
 </div>
 

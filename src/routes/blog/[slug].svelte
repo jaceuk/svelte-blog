@@ -1,15 +1,19 @@
 <script context="module" lang="ts">
-  interface IProps {
-    params: any;
+  interface IParams {
+    params: IParam;
   }
 
-  const slugFromPath = (path: any) => path.match(/([\w-]+)\.(svelte\.md|md|svx)/i)?.[1] ?? null;
+  interface IParam {
+    slug: string;
+  }
+
+  const slugFromPath = (path: string) => path.match(/([\w-]+)\.(svelte\.md|md|svx)/i)?.[1] ?? null;
 
   const allPosts = import.meta.globEager('../../posts/*.md');
 
   interface IPostData {
     post: any;
-    slug: string;
+    slug: string | null;
   }
 
   let posts: [] = [];
@@ -21,7 +25,8 @@
     posts.push(postData);
   }
 
-  export function load({ params }: IProps) {
+  /** @type {import('./__types/[baz]').Load} */
+  export function load({ params }: IParams) {
     const { slug } = params;
 
     // Find the post with the slug
@@ -31,7 +36,6 @@
 
     return {
       props: {
-        // Tell page to load that post's module
         meta: filteredPost.post.metadata,
         page: filteredPost.post.default,
       },

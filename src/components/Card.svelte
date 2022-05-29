@@ -18,7 +18,7 @@
   };
 </script>
 
-<div use:inview={options} on:enter={handleEnter}>
+<div use:inview={options} on:enter={handleEnter} class="container">
   {#key isInView}
     <div class="card" in:fly={{ y: 50, duration: 800, easing: sineOut }}>
       <slot />
@@ -27,6 +27,9 @@
 </div>
 
 <style lang="scss">
+  .container {
+    height: 100%;
+  }
   .card {
     display: flex;
     flex-direction: column;
