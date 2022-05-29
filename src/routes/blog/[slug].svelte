@@ -1,24 +1,84 @@
 <script context="module" lang="ts">
-  interface IFetch {
-    fetch: any;
+  interface IProps {
     params: any;
   }
 
-  export async function load({ params, fetch }: IFetch) {
-    const response = await fetch(`/api/${params.slug}.json`);
-    const post = await response.json();
+  const slugFromPath = (path: any) => path.match(/([\w-]+)\.(svelte\.md|md|svx)/i)?.[1] ?? null;
+
+  const allPosts = import.meta.globEager('../../posts/*.md');
+
+  interface IPostData {
+    post: any;
+    slug: string;
+  }
+
+  let posts: [] = [];
+  // Get the posts' slugs
+  for (let path in allPosts) {
+    const post = allPosts[path];
+    const slug = slugFromPath(path);
+    const postData: IPostData = { post, slug };
+    posts.push(postData);
+  }
+
+  export function load({ params }: IProps) {
+    const { slug } = params;
+
+    // Find the post with the slug
+    const filteredPost: any = posts.find((post: any) => {
+      return post.slug.toLowerCase() === slug.toLowerCase();
+    });
 
     return {
-      status: response.status,
       props: {
-        post: post,
+        // Tell page to load that post's module
+        meta: filteredPost.post.metadata,
+        page: filteredPost.post.default,
       },
     };
   }
 </script>
 
 <script lang="ts">
-  export let post: any;
+  import Card from '@components/Card.svelte';
+
+  export let page: any, meta: any;
 </script>
 
-<h2>{post.title}</h2>
+<svelte:head>
+  <title>{meta.title}</title>
+</svelte:head>
+
+<div class="inner">
+  <div class="narrowContainer">
+    <div class="row">
+      <Card>
+        <h1>{meta.title}</h1>
+        <svelte:component this={page} />
+      </Card>
+    </div>
+  </div>
+</div>
+
+<style type="scss">
+  .inner {
+    margin-top: calc(var(--size-extralarge) * -2);
+    padding-bottom: var(--size-extralarge);
+    background: url('../../images/vader.png') no-repeat right bottom;
+    display: flex;
+    gap: var(--size-medium);
+    flex-direction: column;
+  }
+
+  .narrowContainer {
+    padding: 0 var(--size-super);
+
+    @media (max-width: 1000px) {
+      padding: 0 var(--size-large);
+    }
+
+    @media (max-width: 767px) {
+      padding: 0;
+    }
+  }
+</style>

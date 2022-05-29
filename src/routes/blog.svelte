@@ -3,6 +3,7 @@
     fetch: any;
   }
 
+  /* @type {import('@sveltejs/kit').Load} */
   export async function load({ fetch }: IFetch) {
     const response = await fetch('/api/posts.json');
     const posts = await response.json();
@@ -33,7 +34,7 @@
   {/each}
 </div>
 
-<style>
+<style lang="scss">
   .inner {
     margin-top: calc(var(--size-extralarge) * -1);
     padding-bottom: var(--size-extralarge);
@@ -43,9 +44,13 @@
     grid-gap: var(--size-medium);
     grid-template-rows: auto;
     grid-template-columns: 1fr 1fr;
+
+    @media (max-width: 767px) {
+      grid-template-columns: 1fr;
+    }
   }
 
   .button {
-    margin: auto;
+    margin: auto auto 0 auto;
   }
 </style>

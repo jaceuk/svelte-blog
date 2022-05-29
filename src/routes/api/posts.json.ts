@@ -5,8 +5,8 @@ export async function get() {
   const iterablePostFiles = Object.entries(allPostFiles);
 
   const allPosts = await Promise.all(
-    iterablePostFiles.map(async ([filename, page]) => {
-      const { metadata } = await page();
+    iterablePostFiles.map(async ([filename, resolver]) => {
+      const { metadata } = await resolver();
 
       return {
         title: metadata.title,

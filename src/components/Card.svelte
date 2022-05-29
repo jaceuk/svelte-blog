@@ -28,7 +28,8 @@
 
 <style lang="scss">
   .card {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: var(--size-medium);
     background: var(--color-white);
     border-radius: var(--border-radius-large);
