@@ -139,6 +139,6 @@
   }
 
   .submit {
-    margin: var(--size-base) auto 0 auto;
+    margin: 0 auto;
   }
 </style>

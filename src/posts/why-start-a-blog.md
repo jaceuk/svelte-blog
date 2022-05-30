@@ -1,7 +1,7 @@
 ---
 title: 'Why start a blog?'
 date: '2022-05-29'
-excerpt: "So I've finally decided to take the plunge and start a blog so to get things going I thought I'd discuss why would I do such a crazy thing?"
+excerpt: "So I've finally decided to take the plunge and start a blog but why on earth would I do such a crazy thing?"
 ---
 
 Blogs were all the rage over a decade ago so I realise I'm rather late to the party but this isn't about you, it's about me. Let me explain.
@@ -35,8 +35,7 @@ Fast forward to today and your typical front end tech stack might be:
 - JavaScript
 - A Javascript framework or library such as React, Vue or Angular (Let's face it, it's React!)
 - Familiarity with a boat load of third party NPM packages each with their own API
-- Styled components
-- CSS modules
+- Styled components or CSS modules
 - Git
 - NodeJS (It's Javascript so has to be a front end task right?)
 - Jest or similar testing framework

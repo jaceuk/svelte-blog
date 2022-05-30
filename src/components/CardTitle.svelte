@@ -28,5 +28,10 @@
     height: 84px;
     min-width: 84px;
     color: var(--color-white);
+
+    @media (max-width: 767px) {
+      height: 64px;
+      min-width: 64px;
+    }
   }
 </style>

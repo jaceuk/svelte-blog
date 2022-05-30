@@ -43,6 +43,7 @@
     @media (max-width: 767px) {
       padding: var(--size-base);
       border-radius: var(--border-radius-medium);
+      gap: var(--size-base);
     }
   }
 </style>

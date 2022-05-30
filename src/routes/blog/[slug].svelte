@@ -80,8 +80,9 @@
     gap: var(--size-medium);
     flex-direction: column;
 
-    @media (max-width: 767px) {
+    @media (max-width: 900px) {
       padding: 0;
+      gap: var(--size-base);
     }
   }
 
