@@ -20,7 +20,7 @@
 
 <div use:inview={options} on:enter={handleEnter} class="container">
   {#key isInView}
-    <div class="card" in:fly={{ y: 50, duration: 800, easing: sineOut }}>
+    <div class="card" in:fly={{ y: 50, duration: 400, easing: sineOut }}>
       <slot />
     </div>
   {/key}

@@ -12,7 +12,7 @@ export async function get() {
 
       return {
         title: metadata.title,
-        date: new Date(metadata.date),
+        date: metadata.date,
         excerpt: metadata.excerpt,
         slug: basename(filename, '.md'),
       };
