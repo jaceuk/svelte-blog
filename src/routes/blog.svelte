@@ -30,7 +30,6 @@
         <h2>
           {post.title}
         </h2>
-        <p>{post.date}</p>
         <p>{post.excerpt}</p>
         <a href="blog/{post.slug}" class="button">Read more</a>
       </Card>

@@ -57,7 +57,6 @@
   <div class="narrowContainer">
     <div class="row">
       <Card>
-        <p>{meta.date}</p>
         <h1>{meta.title}</h1>
         <svelte:component this={page} />
       </Card>
