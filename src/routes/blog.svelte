@@ -34,6 +34,20 @@
         <h2>
           {post.title}
         </h2>
+        <div class="post-meta">
+          {post.date}
+          {#if post.tags}
+            in
+            {#each post.tags.sort() as tag, i}
+              <a href="#">
+                {tag}
+              </a>
+              {#if i < post.tags.length - 1}
+                <span>, </span>
+              {/if}
+            {/each}
+          {/if}
+        </div>
         <p>{post.excerpt}</p>
         <a href="blog/{post.slug}" class="button">Read more</a>
       </Card>

@@ -1,3 +1,7 @@
+a {
+  color: var(--color-nearlyblack);
+}
+
 .inner {
   max-width: var(--size-containermaxwidth);
   margin: 0 auto;
@@ -94,8 +98,8 @@
 
 .tag {
   background: var(--color-palegrey);
-  border-radius: var(--border-radius-small);
-  padding: var(--size-base) var(--size-medium);
+  border-radius: var(--border-radius-large);
+  padding: var(--size-base);
   display: inline-block;
 }
 
@@ -111,9 +115,8 @@
 blockquote {
   background: var(--color-palegrey);
   padding: var(--size-medium);
-  border-left: var(--size-small) solid var(--color-nearlyblack60);
+  border-left: var(--size-small) solid var(--color-nearlyblack80);
   font-style: italic;
-  border-radius: var(--border-radius-small);
 }
 
 blockquote:before {

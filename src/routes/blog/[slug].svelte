@@ -60,6 +60,20 @@
       <Card>
         <div class="card-inner">
           <h1>{meta.title}</h1>
+          <div class="post-meta">
+            {meta.date}
+            {#if meta.tags}
+              in
+              {#each meta.tags.sort() as tag, i}
+                <a href="#">
+                  {tag}
+                </a>
+                {#if i < meta.tags.length - 1}
+                  <span>, </span>
+                {/if}
+              {/each}
+            {/if}
+          </div>
           <svelte:component this={page} />
         </div>
       </Card>
@@ -96,5 +110,11 @@
     @media (max-width: 767px) {
       padding: 0;
     }
+  }
+
+  .post-meta {
+    padding: var(--size-base);
+    background-color: var(--color-palegrey);
+    border-radius: 8px;
   }
 </style>

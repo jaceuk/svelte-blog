@@ -12,6 +12,7 @@ export async function get() {
         title: metadata.title,
         date: metadata.date,
         excerpt: metadata.excerpt,
+        tags: metadata.tags,
         slug: basename(filename, '.md'),
       };
     }),

@@ -1,6 +1,6 @@
 <div class="title">
-  <h1>Every time I learn something new</h1>
-  <div class="subtitle">it pushes some old stuff out</div>
+  <h1>Blog posts</h1>
+  <div class="subtitle">Every time I learn something new it pushes some old stuff out</div>
 </div>
 
 <style lang="scss">

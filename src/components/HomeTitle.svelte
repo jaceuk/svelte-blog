@@ -5,7 +5,7 @@
 <img src={bigJ} alt="" />
 
 <div class="title">
-  <h1>
+  <h1 class="large">
     <span class="light">Hi, I'm</span> Jason Newington
   </h1>
   <div class="subtitle">Developer, Designer and Geek</div>
