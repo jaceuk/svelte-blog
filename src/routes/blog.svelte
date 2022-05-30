@@ -23,6 +23,10 @@
   export let posts: any;
 </script>
 
+<svelte:head>
+  <title>Blog</title>
+</svelte:head>
+
 <div class="inner">
   {#each posts as post}
     <article>

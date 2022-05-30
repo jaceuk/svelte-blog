@@ -113,7 +113,7 @@ blockquote {
   padding: var(--size-medium);
   border-left: var(--size-small) solid var(--color-nearlyblack40);
   font-style: italic;
-  quotes: '\201C''\201D''\2018''\2019';
+  border-radius: var(--border-radius-small);
 }
 
 blockquote:before {

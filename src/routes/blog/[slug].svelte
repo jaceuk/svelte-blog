@@ -51,14 +51,17 @@
 
 <svelte:head>
   <title>{meta.title}</title>
+  <meta name="description" content={meta.excerpt} />
 </svelte:head>
 
 <div class="inner">
   <div class="narrowContainer">
     <div class="row">
       <Card>
-        <h1>{meta.title}</h1>
-        <svelte:component this={page} />
+        <div class="card-inner">
+          <h1>{meta.title}</h1>
+          <svelte:component this={page} />
+        </div>
       </Card>
     </div>
   </div>
@@ -69,13 +72,21 @@
     margin-top: calc(var(--size-extralarge) * -2);
     padding-bottom: var(--size-extralarge);
     background: url('../../images/vader.png') no-repeat right bottom;
+  }
+
+  .card-inner {
+    padding: var(--size-medium);
     display: flex;
     gap: var(--size-medium);
     flex-direction: column;
+
+    @media (max-width: 767px) {
+      padding: 0;
+    }
   }
 
   .narrowContainer {
-    padding: 0 var(--size-super);
+    padding: 0 var(--size-extralarge);
 
     @media (max-width: 1000px) {
       padding: 0 var(--size-large);
