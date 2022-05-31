@@ -1,12 +1,14 @@
 <script context="module" lang="ts">
   interface ILoad {
     status: number;
+    error: any;
   }
 
-  export function load({ status }: ILoad) {
+  export function load({ status, error }: ILoad) {
     return {
       props: {
         status,
+        message: error.message,
       },
     };
   }
@@ -17,6 +19,7 @@
   import stormTroopers from '@images/404.jpg';
 
   export let status: number;
+  export let message: string;
 </script>
 
 <div class="inner">
