@@ -11,6 +11,7 @@
   import HomeTitle from '@components/HomeTitle.svelte';
   import ContactTitle from '@components/ContactTitle.svelte';
   import BlogTitle from '@components/BlogTitle.svelte';
+  import TagTitle from '@components/TagTitle.svelte';
   import Footer from '@components/Footer.svelte';
 </script>
 
@@ -19,6 +20,7 @@
   {#if $page.url.pathname === '/'}<HomeTitle slot="title" />{/if}
   {#if $page.url.pathname === '/contact'}<ContactTitle slot="title" />{/if}
   {#if $page.url.pathname === '/blog'}<BlogTitle slot="title" />{/if}
+  {#if $page.url.pathname.includes('/tag/')}<TagTitle slot="title" />{/if}
 </Header>
 <slot />
 <Footer />

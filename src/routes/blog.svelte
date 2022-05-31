@@ -3,7 +3,6 @@
     fetch: any;
   }
 
-  /** @type {import('./__types/[baz]').Load} */
   export async function load({ fetch }: IFetch) {
     const response = await fetch('/api/posts.json');
     const posts = await response.json();
@@ -18,7 +17,7 @@
 </script>
 
 <script lang="ts">
-  import Card from '@components/Card.svelte';
+  import Posts from '@components/Posts.svelte';
 
   export let posts: any;
 </script>
@@ -27,33 +26,7 @@
   <title>Blog</title>
 </svelte:head>
 
-<div class="inner">
-  {#each posts as post}
-    <article>
-      <Card>
-        <h2>
-          {post.title}
-        </h2>
-        <div class="post-meta">
-          {post.date}
-          {#if post.tags}
-            in
-            {#each post.tags.sort() as tag, i}
-              <a href="#">
-                {tag}
-              </a>
-              {#if i < post.tags.length - 1}
-                <span>, </span>
-              {/if}
-            {/each}
-          {/if}
-        </div>
-        <p>{post.excerpt}</p>
-        <a href="blog/{post.slug}" class="button">Read more</a>
-      </Card>
-    </article>
-  {/each}
-</div>
+<Posts {posts} />
 
 <style lang="scss">
   .inner {

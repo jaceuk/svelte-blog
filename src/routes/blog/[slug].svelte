@@ -2,19 +2,16 @@
   interface IParams {
     params: IParam;
   }
-
   interface IParam {
     slug: string;
   }
-
-  const slugFromPath = (path: string) => path.match(/([\w-]+)\.(svelte\.md|md|svx)/i)?.[1] ?? null;
-
-  const allPosts = import.meta.globEager('../../posts/*.md');
-
   interface IPostData {
     post: any;
     slug: string | null;
   }
+
+  const slugFromPath = (path: string) => path.match(/([\w-]+)\.(svelte\.md|md|svx)/i)?.[1] ?? null;
+  const allPosts = import.meta.globEager('../../posts/*.md');
 
   let posts: [] = [];
   // Get the posts' slugs
@@ -25,7 +22,6 @@
     posts.push(postData);
   }
 
-  /** @type {import('./__types/[baz]').Load} */
   export function load({ params }: IParams) {
     const { slug } = params;
 
@@ -45,6 +41,7 @@
 
 <script lang="ts">
   import Card from '@components/Card.svelte';
+  import PostMeta from '@components/PostMeta.svelte';
 
   export let page: any, meta: any;
 </script>
@@ -60,20 +57,7 @@
       <Card>
         <div class="card-inner">
           <h1>{meta.title}</h1>
-          <div class="post-meta">
-            {meta.date}
-            {#if meta.tags}
-              in
-              {#each meta.tags.sort() as tag, i}
-                <a href="#">
-                  {tag}
-                </a>
-                {#if i < meta.tags.length - 1}
-                  <span>, </span>
-                {/if}
-              {/each}
-            {/if}
-          </div>
+          <PostMeta date={meta.date} tags={meta.tags} />
           <svelte:component this={page} />
         </div>
       </Card>
@@ -110,11 +94,5 @@
     @media (max-width: 767px) {
       padding: 0;
     }
-  }
-
-  .post-meta {
-    padding: var(--size-base);
-    background-color: var(--color-palegrey);
-    border-radius: 8px;
   }
 </style>
