@@ -51,7 +51,7 @@ export async function get({ url }: IUrl) {
   return {
     status: 200,
     body: {
-      sortedPostsPage,
+      posts: sortedPostsPage,
       postCount: filteredPosts.length,
     },
   };

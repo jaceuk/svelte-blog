@@ -12,14 +12,19 @@
   const pagePath: string = tag ? tag : 'posts';
 </script>
 
-<div class="inner">
-  <div class="pagination">
-    {totalNumberOfPages}
-    <a class="button" href={page > 1 ? `/${folderPath}/${pagePath}?page=${page - 1}` : ''}><MdChevronLeft /></a>
-    <a class="button" href={page < totalNumberOfPages ? `/${folderPath}/${pagePath}?page=${page + 1}` : ''}
-      ><MdChevronRight /></a
-    >
-  </div>
+<div class="pagination">
+  <a
+    class="button"
+    aria-disabled={page <= 1}
+    aria-label="Next posts"
+    href={page > 1 ? `/${folderPath}/${pagePath}?page=${page - 1}` : ''}><MdChevronLeft /></a
+  >
+  <a
+    class="button"
+    aria-disabled={page >= totalNumberOfPages}
+    aria-label="Previous posts"
+    href={page < totalNumberOfPages ? `/${folderPath}/${pagePath}?page=${page + 1}` : ''}><MdChevronRight /></a
+  >
 </div>
 
 <style lang="scss">
@@ -32,5 +37,15 @@
 
   .button {
     height: 61px;
+
+    &[aria-disabled='true'] {
+      cursor: default;
+      opacity: 0.2;
+
+      &:hover {
+        background-color: var(--color-white);
+        color: var(--color-nearlyblack);
+      }
+    }
   }
 </style>

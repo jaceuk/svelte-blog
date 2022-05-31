@@ -22,7 +22,7 @@
     return {
       status: response.status,
       props: {
-        posts: posts.sortedPostsPage,
+        posts: posts.posts,
         postCount: posts.postCount,
         page: page,
         tagParam: tagParam,
@@ -45,6 +45,4 @@
   <title>Blog</title>
 </svelte:head>
 
-<Posts {posts} />
-
-<Pagination {page} tag={tagParam} {postCount} />
+<Posts {posts} {page} tag={tagParam} {postCount} />
