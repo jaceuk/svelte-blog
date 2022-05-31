@@ -4,11 +4,9 @@
     url: any;
   }
 
-  const PAGE_SIZE = 4;
-
   export async function load({ fetch, url }: IFetch) {
     const page = parseInt(url.searchParams.get('page') !== null ? url.searchParams.get('page') : '1');
-    const response = await fetch(`/api/posts.json?page=${page}&size=${PAGE_SIZE}`);
+    const response = await fetch(`/api/posts.json?page=${page}`);
     const posts = await response.json();
 
     return {
@@ -16,7 +14,6 @@
       props: {
         posts: posts,
         page: page,
-        pageSize: PAGE_SIZE,
       },
     };
   }
@@ -24,10 +21,10 @@
 
 <script lang="ts">
   import Posts from '@components/Posts.svelte';
+  import Pagination from '@components/Pagination.svelte';
 
   export let posts: any;
   export let page: number;
-  export let pageSize: number;
 </script>
 
 <svelte:head>
@@ -35,18 +32,7 @@
 </svelte:head>
 
 <Posts {posts} />
-
-{page}
-{pageSize}
-
-<div>
-  {#if page > 1}
-    <a href={`/blog/posts?page=${page - 1}`}>back</a>
-  {/if}
-  {#if posts.length === PAGE_SIZE}
-    <a href={`/blog/posts?page=${page + 1}`}>next</a>
-  {/if}
-</div>
+<Pagination {page} />
 
 <style lang="scss">
   .inner {

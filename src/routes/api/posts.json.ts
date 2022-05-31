@@ -1,12 +1,17 @@
 import { basename } from 'path';
+import { postsPerPage, postCount } from '@lib/stores';
 
+let postsPerPageValue: number;
+
+postsPerPage.subscribe((value: number) => {
+  postsPerPageValue = value;
+});
 interface IUrl {
   url: any;
 }
 
 export async function get({ url }: IUrl) {
   const page = parseInt(url.searchParams.get('page'));
-  const pageSize = parseInt(url.searchParams.get('size'));
   const tag = url.searchParams.get('tag');
   const allPostFiles = import.meta.glob('../../posts/*.md');
   const iterablePostFiles = Object.entries(allPostFiles);
@@ -33,9 +38,10 @@ export async function get({ url }: IUrl) {
   } else {
     filteredPosts = allPosts;
   }
+  postCount.set(filteredPosts.length);
 
   const sortedPosts = filteredPosts.sort((a: any, b: any) => (a.date > b.date ? -1 : 1));
-  const sortedPostsPage = sortedPosts.slice((page - 1) * pageSize, page * pageSize);
+  const sortedPostsPage = sortedPosts.slice((page - 1) * postsPerPageValue, page * postsPerPageValue);
 
   if (!sortedPostsPage.length) {
     return {
