@@ -11,7 +11,7 @@
 
     <nav>
       <a href="/" class="button">Home</a>
-      <a href="/blog" class="button">Blog</a>
+      <a href="/blog/posts?page=1" class="button">Blog</a>
       <a href="/contact" class="button">Contact</a>
     </nav>
   </div>

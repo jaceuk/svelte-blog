@@ -14,7 +14,7 @@
         </h2>
         <PostMeta date={post.date} tags={post.tags} />
         <p>{post.excerpt}</p>
-        <a href="blog/{post.slug}" class="button">Read more</a>
+        <a href="/blog/{post.slug}" class="button">Read more</a>
       </Card>
     </article>
   {/each}

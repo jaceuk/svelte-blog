@@ -19,7 +19,7 @@
 <Header>
   {#if $page.url.pathname === '/'}<HomeTitle slot="title" />{/if}
   {#if $page.url.pathname === '/contact'}<ContactTitle slot="title" />{/if}
-  {#if $page.url.pathname === '/blog'}<BlogTitle slot="title" />{/if}
+  {#if $page.url.pathname === '/blog/posts'}<BlogTitle slot="title" />{/if}
   {#if $page.url.pathname.includes('/tag/')}<TagTitle slot="title" />{/if}
 </Header>
 <slot />

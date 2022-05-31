@@ -1,16 +1,22 @@
 <script context="module" lang="ts">
   interface IFetch {
     fetch: any;
+    url: any;
   }
 
-  export async function load({ fetch }: IFetch) {
-    const response = await fetch('/api/posts.json');
+  const PAGE_SIZE = 4;
+
+  export async function load({ fetch, url }: IFetch) {
+    const page = parseInt(url.searchParams.get('page') !== null ? url.searchParams.get('page') : '1');
+    const response = await fetch(`/api/posts.json?page=${page}&size=${PAGE_SIZE}`);
     const posts = await response.json();
 
     return {
       status: response.status,
       props: {
         posts: posts,
+        page: page,
+        pageSize: PAGE_SIZE,
       },
     };
   }
@@ -20,6 +26,8 @@
   import Posts from '@components/Posts.svelte';
 
   export let posts: any;
+  export let page: number;
+  export let pageSize: number;
 </script>
 
 <svelte:head>
@@ -27,6 +35,18 @@
 </svelte:head>
 
 <Posts {posts} />
+
+{page}
+{pageSize}
+
+<div>
+  {#if page > 1}
+    <a href={`/blog/posts?page=${page - 1}`}>back</a>
+  {/if}
+  {#if posts.length === PAGE_SIZE}
+    <a href={`/blog/posts?page=${page + 1}`}>next</a>
+  {/if}
+</div>
 
 <style lang="scss">
   .inner {

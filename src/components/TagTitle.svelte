@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { tag } from '@lib/stores.ts';
+  import { tag } from '@lib/stores';
 
   let tagValue: string;
 

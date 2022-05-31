@@ -1,6 +1,13 @@
 import { basename } from 'path';
 
-export async function get() {
+interface IUrl {
+  url: any;
+}
+
+export async function get({ url }: IUrl) {
+  const page = parseInt(url.searchParams.get('page'));
+  const pageSize = parseInt(url.searchParams.get('size'));
+  const tag = url.searchParams.get('tag');
   const allPostFiles = import.meta.glob('../../posts/*.md');
   const iterablePostFiles = Object.entries(allPostFiles);
 
@@ -18,10 +25,26 @@ export async function get() {
     }),
   );
 
-  const sortedPosts = allPosts.sort((a, b) => (a.date > b.date ? -1 : 1));
+  let filteredPosts: any;
+  if (tag) {
+    filteredPosts = allPosts.filter((post: any) => {
+      return post.tags.includes(tag);
+    });
+  } else {
+    filteredPosts = allPosts;
+  }
+
+  const sortedPosts = filteredPosts.sort((a: any, b: any) => (a.date > b.date ? -1 : 1));
+  const sortedPostsPage = sortedPosts.slice((page - 1) * pageSize, page * pageSize);
+
+  if (!sortedPostsPage.length) {
+    return {
+      status: 404,
+    };
+  }
 
   return {
     status: 200,
-    body: sortedPosts,
+    body: sortedPostsPage,
   };
 }
