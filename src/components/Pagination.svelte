@@ -1,12 +1,13 @@
 <script lang="ts">
   import MdChevronRight from 'svelte-icons/md/MdChevronRight.svelte';
   import MdChevronLeft from 'svelte-icons/md/MdChevronLeft.svelte';
-  import { postCount, postsPerPage } from '@lib/stores';
+  import { postsPerPage } from '@lib/stores';
 
   export let page: number;
+  export let postCount: number;
   export let tag: string = '';
 
-  const totalNumberOfPages = $postCount / $postsPerPage;
+  const totalNumberOfPages = postCount / $postsPerPage;
   const folderPath: string = tag ? 'tag' : 'blog';
   const pagePath: string = tag ? tag : 'posts';
 </script>

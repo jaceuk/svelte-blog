@@ -22,7 +22,8 @@
     return {
       status: response.status,
       props: {
-        posts: posts,
+        posts: posts.sortedPostsPage,
+        postCount: posts.postCount,
         page: page,
         tagParam: tagParam,
       },
@@ -37,6 +38,7 @@
   export let posts: any;
   export let page: number;
   export let tagParam: string;
+  export let postCount: number;
 </script>
 
 <svelte:head>
@@ -45,4 +47,4 @@
 
 <Posts {posts} />
 
-<Pagination {page} tag={tagParam} />
+<Pagination {page} tag={tagParam} {postCount} />

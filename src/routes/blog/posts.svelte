@@ -9,10 +9,13 @@
     const response = await fetch(`/api/posts.json?page=${page}`);
     const posts = await response.json();
 
+    console.log(posts);
+
     return {
       status: response.status,
       props: {
-        posts: posts,
+        posts: posts.sortedPostsPage,
+        postCount: posts.postCount,
         page: page,
       },
     };
@@ -25,6 +28,7 @@
 
   export let posts: any;
   export let page: number;
+  export let postCount: number;
 </script>
 
 <svelte:head>
@@ -32,7 +36,7 @@
 </svelte:head>
 
 <Posts {posts} />
-<Pagination {page} />
+<Pagination {page} {postCount} />
 
 <style lang="scss">
   .inner {

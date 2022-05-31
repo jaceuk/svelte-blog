@@ -1,5 +1,5 @@
 import { basename } from 'path';
-import { postsPerPage, postCount } from '@lib/stores';
+import { postsPerPage } from '@lib/stores';
 
 let postsPerPageValue: number;
 
@@ -38,7 +38,6 @@ export async function get({ url }: IUrl) {
   } else {
     filteredPosts = allPosts;
   }
-  postCount.set(filteredPosts.length);
 
   const sortedPosts = filteredPosts.sort((a: any, b: any) => (a.date > b.date ? -1 : 1));
   const sortedPostsPage = sortedPosts.slice((page - 1) * postsPerPageValue, page * postsPerPageValue);
@@ -51,6 +50,9 @@ export async function get({ url }: IUrl) {
 
   return {
     status: 200,
-    body: sortedPostsPage,
+    body: {
+      sortedPostsPage,
+      postCount: filteredPosts.length,
+    },
   };
 }

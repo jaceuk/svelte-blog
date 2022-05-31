@@ -1,5 +1,5 @@
 ---
-title: 'Why start a blog?'
+title: 'Why start a blog 4?'
 date: '2022-05-29'
 excerpt: "So I've finally decided to take the plunge and start a blog but why on earth would I do such a crazy thing?"
 tags: ['Misc']
