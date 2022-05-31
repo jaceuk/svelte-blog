@@ -11,7 +11,7 @@
   }
 
   const slugFromPath = (path: string) => path.match(/([\w-]+)\.(svelte\.md|md|svx)/i)?.[1] ?? null;
-  const allPosts = import.meta.globEager('../../posts/*.mdx');
+  const allPosts = import.meta.globEager('../../posts/*.md');
 
   let posts: [] = [];
   // Get the posts' slugs
