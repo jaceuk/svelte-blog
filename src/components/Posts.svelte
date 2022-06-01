@@ -1,7 +1,6 @@
 <script lang="ts">
-  import Card from '@components/Card.svelte';
   import Pagination from '@components/Pagination.svelte';
-  import PostMeta from '@components/PostMeta.svelte';
+  import PostCard from '@components/PostCard.svelte';
 
   export let posts: any;
   export let page: number;
@@ -12,16 +11,7 @@
 <div class="inner">
   <div class="grid">
     {#each posts as post}
-      <article>
-        <Card>
-          <h2>
-            {post.title}
-          </h2>
-          <PostMeta date={post.date} tags={post.tags} />
-          <p>{post.excerpt}</p>
-          <a href="/blog/{post.slug}" class="button">Read more</a>
-        </Card>
-      </article>
+      <PostCard {post} />
     {/each}
   </div>
   <Pagination {page} {postCount} {tag} />
@@ -45,9 +35,5 @@
     grid-template-rows: auto;
     grid-template-columns: 1fr 1fr;
     padding-bottom: var(--size-large);
-  }
-
-  .button {
-    margin: auto auto 0 auto;
   }
 </style>
