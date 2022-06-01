@@ -33,24 +33,3 @@
 </svelte:head>
 
 <Posts {posts} {page} {postCount} />
-
-<style lang="scss">
-  .inner {
-    margin-top: calc(var(--size-extralarge) * -1);
-    padding-bottom: var(--size-extralarge);
-    background: url('../images/vader.png') no-repeat right bottom;
-    display: grid;
-    grid-auto-flow: row;
-    grid-gap: var(--size-medium);
-    grid-template-rows: auto;
-    grid-template-columns: 1fr 1fr;
-
-    @media (max-width: 767px) {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  .button {
-    margin: auto auto 0 auto;
-  }
-</style>
