@@ -55,7 +55,7 @@ It's not all good and there are a few negatives:
 
 Despite me gushing over Sveltekit this was a very close call between Sveltekit and NextJS.
 
-When working on side projects I usually try and stick with whatever tech stack my day job uses to help me improve my skills. This made NextJS the obvious choice but working with **Sveltekit really did feel like a return to simpler times** where you could just write HTML, CSS, and JavaScript and that’s a BIG win for me.
+When working on side projects I usually try and stick with whatever tech stack my day job uses to help me improve my skills. This made NextJS the obvious choice but **working with Sveltekit really did feel like a return to simpler times** where you could just write HTML, CSS, and JavaScript and that’s a BIG win for me.
 
 It was fast, both in development and the final build, and the developer experience was great despite having to learn the Svelte way of doing things.
 
