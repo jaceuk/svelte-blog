@@ -104,8 +104,8 @@
 
 <style type="scss">
   .inner {
-    margin-top: calc(var(--size-extralarge) * -1);
-    padding-bottom: var(--size-extralarge);
+    margin-top: calc(var(--size-extra-large) * -1);
+    padding-bottom: var(--size-extra-large);
     background: url('../images/vader.png') no-repeat right bottom;
     display: flex;
     gap: var(--size-medium);
@@ -133,9 +133,9 @@
     width: 100%;
     padding: var(--size-base);
     border-radius: var(--border-radius-small);
-    border: 1px solid var(--color-nearlyblack20);
+    border: 1px solid var(--color-nearly-black-20);
 
-    background: var(--color-palegrey);
+    background: var(--color-pale-grey);
   }
 
   .submit {

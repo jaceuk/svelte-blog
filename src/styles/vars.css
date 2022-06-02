@@ -1,42 +1,42 @@
 :root {
   /* sizes */
-  --size-containermaxwidth: 1248px;
+  --size-max-width: 1248px;
   --size-small: 0.8rem;
   --size-base: 1.6rem;
   --size-medium: 3.2rem;
   --size-large: 6.4rem;
-  --size-extralarge: 12.8rem;
+  --size-extra-large: 12.8rem;
   --size-super: 19.2rem;
 
   /* colors */
   --color-black: #000;
-  --color-nearlyblack: #333;
-  --color-nearlyblack20: rgb(51 51 51 / 20%);
-  --color-nearlyblack40: rgb(51 51 51 / 40%);
-  --color-nearlyblack60: rgb(51 51 51 / 60%);
-  --color-nearlyblack80: rgb(51 51 51 / 80%);
+  --color-nearly-black: #333;
+  --color-nearly-black-20: rgb(51 51 51 / 20%);
+  --color-nearly-black-40: rgb(51 51 51 / 40%);
+  --color-nearly-black-80: rgb(51 51 51 / 80%);
   --color-white: #fff;
-  --color-white80: rgb(255 255 255 / 80%);
-  --color-palegrey: #f5f5f5;
   --color-grey: #e0e0e0;
-  --color-lighthousegood: #0c6;
-  --color-lighthousegooddark: #028802;
-  --color-lighthousegoodpale: #e6faf0;
-  --color-lighthouseaverage: #fa3;
-  --color-lighthouseaveragedark: #c33300;
-  --color-lighthouseaveragepale: #fff7eb;
-  --color-lighthousepoor: #f33;
-  --color-lighthousepoordark: #c00;
-  --color-lighthousepoorpale: #ffebeb;
+  --color-pale-grey: #f5f5f5;
+  --color-good: #0c6;
+  --color-good-dark: #028802;
+  --color-good-pale: #e6faf0;
+  --color-average: #fa3;
+  --color-average-dark: #c33300;
+  --color-average-pale: #fff7eb;
+  --color-poor: #f33;
+  --color-poor-dark: #c00;
+  --color-poor-pale: #ffebeb;
 
-  /* fonts */
+  /* font size */
   --font-size-small: 1.4rem;
   --font-size-base: 1.8rem;
   --font-size-medium: 2.4rem;
   --font-size-large: 3.6rem;
-  --font-size-extralarge: 4.8rem;
+  --font-size-extra-large: 4.8rem;
   --font-size-super: 5.4rem;
   --font-size-max: 6.4rem;
+
+  /* font weight */
   --font-weight-light: 300;
   --font-weight-regular: 400;
   --font-weight-semi-bold: 600;

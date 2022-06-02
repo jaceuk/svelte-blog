@@ -149,7 +149,7 @@
     gap: var(--size-medium);
     padding: var(--size-medium);
     flex-basis: calc(50% - var(--size-medium) / 2);
-    background-color: var(--color-palegrey);
+    background-color: var(--color-pale-grey);
 
     @media (max-width: 767px) {
       padding: var(--size-base);
@@ -189,7 +189,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: left top;
-    background-color: var(--color-palegrey);
+    background-color: var(--color-pale-grey);
     border-radius: var(--border-radius-medium);
     overflow: hidden;
     position: relative;
@@ -220,8 +220,8 @@
         align-items: center;
         justify-content: center;
         background-color: var(--color-white);
-        box-shadow: 0px 4px 4px var(--color-nearlyblack20);
-        border: 1px solid var(--color-nearlyblack);
+        box-shadow: 0px 4px 4px var(--color-nearly-black-20);
+        border: 1px solid var(--color-nearly-black);
         transition: all 0.2s ease-in-out;
       }
     }

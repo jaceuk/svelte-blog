@@ -46,13 +46,13 @@
   }
 
   .button {
-    background: var(--color-nearlyblack20);
-    border-color: var(--color-nearlyblack20);
+    background: var(--color-nearly-black-20);
+    border-color: var(--color-nearly-black-20);
     color: var(--color-white);
     box-shadow: none;
 
     &:hover {
-      background: var(--color-nearlyblack40);
+      background: var(--color-nearly-black-40);
     }
   }
 </style>

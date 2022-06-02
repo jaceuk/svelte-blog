@@ -37,7 +37,7 @@
     background: var(--color-white);
     border-radius: var(--border-radius-large);
     padding: var(--size-medium);
-    box-shadow: 0px 3px 24px var(--color-nearlyblack20);
+    box-shadow: 0px 3px 24px var(--color-nearly-black-20);
     height: 100%;
 
     @media (max-width: 767px) {

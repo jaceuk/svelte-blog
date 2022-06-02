@@ -32,7 +32,7 @@
 <style lang="scss">
   .container {
     padding: var(--size-large) 0;
-    background-color: var(--color-palegrey);
+    background-color: var(--color-pale-grey);
   }
 
   .inner {

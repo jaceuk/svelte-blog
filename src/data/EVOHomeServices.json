@@ -22,7 +22,7 @@
     {
       "title": "REST API",
       "text": [
-        "The site gets it's data from a REST API built using the Slim micro framework for PHP with a bespoke admin area which allows the client to add their Checkatrade reviews to the site."
+        "The site gets it's data from a REST API built using the Slim micro framework for PHP with a bespoke secure admin area which allows the client to add their Checkatrade reviews to the site."
       ]
     },
     {

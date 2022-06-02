@@ -23,7 +23,7 @@ h6 {
 
 html {
   font-size: 62.5%;
-  color: var(--color-nearlyblack);
+  color: var(--color-nearly-black);
 }
 
 body {
@@ -36,7 +36,7 @@ h1 {
   font-weight: var(--font-weight-bold);
 
   @media (max-width: 767px) {
-    font-size: calc(var(--font-size-extralarge));
+    font-size: calc(var(--font-size-extra-large));
   }
 
   .light {
@@ -47,7 +47,7 @@ h1 {
     font-size: var(--font-size-max);
 
     @media (max-width: 767px) {
-      font-size: calc(var(--font-size-extralarge));
+      font-size: calc(var(--font-size-extra-large));
     }
   }
 }

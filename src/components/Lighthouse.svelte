@@ -10,8 +10,8 @@
       <div
         class="circle {parseInt(score) < 90 ? 'average' : 'good'}"
         style="background-image: conic-gradient(var(--color-{parseInt(score) < 90
-          ? 'lighthouseaverage'
-          : 'lighthousegood'}) {score}%, transparent 10%)"
+          ? 'average'
+          : 'good'}) {score}%, transparent 10%)"
       >
         <div class="number">{score}</div>
       </div>
@@ -57,20 +57,20 @@
     }
 
     &[class~='good'] {
-      background-color: var(--color-lighthousegoodpale);
+      background-color: var(--color-good-pale);
 
       .number {
-        color: var(--color-lighthousegooddark);
-        background-color: var(--color-lighthousegoodpale);
+        color: var(--color-good-dark);
+        background-color: var(--color-good-pale);
       }
     }
 
     &[class~='average'] {
-      background-color: var(--color-lighthouseaveragepale);
+      background-color: var(--color-average-pale);
 
       .number {
-        color: var(--color-lighthouseaveragedark);
-        background-color: var(--color-lighthouseaveragepale);
+        color: var(--color-average-dark);
+        background-color: var(--color-average-pale);
       }
     }
   }

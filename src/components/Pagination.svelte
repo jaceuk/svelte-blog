@@ -44,7 +44,7 @@
 
       &:hover {
         background-color: var(--color-white);
-        color: var(--color-nearlyblack);
+        color: var(--color-nearly-black);
       }
     }
   }

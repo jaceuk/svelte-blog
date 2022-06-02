@@ -61,8 +61,8 @@
 
 <style lang="scss">
   .inner {
-    margin-top: calc(var(--size-extralarge) * -1);
-    padding-bottom: var(--size-extralarge);
+    margin-top: calc(var(--size-extra-large) * -1);
+    padding-bottom: var(--size-extra-large);
     background: url('../images/vader.png') no-repeat right bottom;
     display: flex;
     gap: var(--size-medium);
@@ -70,7 +70,7 @@
   }
 
   .narrowContainer {
-    padding: 0 var(--size-extralarge);
+    padding: 0 var(--size-extra-large);
 
     @media (max-width: 767px) {
       padding: 0;

@@ -22,7 +22,7 @@
   }
 
   .icon-container {
-    background: var(--color-nearlyblack);
+    background: var(--color-nearly-black);
     border-radius: var(--border-radius-max);
     padding: var(--size-base);
     height: 84px;

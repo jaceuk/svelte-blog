@@ -29,20 +29,20 @@
     border-radius: var(--border-radius-medium);
 
     &.success {
-      background-color: var(--color-lighthousegoodpale);
-      color: var(--color-lighthousegooddark);
+      background-color: var(--color-good-pale);
+      color: var(--color-good-dark);
 
       .icon-container {
-        color: var(--color-lighthousegooddark);
+        color: var(--color-good-dark);
       }
     }
 
     &.error {
-      background-color: var(--color-lighthousepoorpale);
-      color: var(--color-lighthousepoordark);
+      background-color: var(--color-poor-pale);
+      color: var(--color-poor-dark);
 
       .icon-container {
-        color: var(--color-lighthousepoordark);
+        color: var(--color-poor-dark);
       }
     }
 

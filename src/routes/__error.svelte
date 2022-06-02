@@ -41,7 +41,7 @@
 
 <style lang="scss">
   .inner {
-    margin-top: calc(var(--size-extralarge) * -2);
+    margin-top: calc(var(--size-extra-large) * -2);
     margin-bottom: calc(var(--size-medium) * -1);
   }
 
