@@ -19,9 +19,42 @@
   let response: IOutcome;
   let outcome: IOutcome = { status: 0, message: '' };
 
+  async function checkRecaptcha(token: string) {
+    const response = await fetch('/api/verify', {
+      method: 'POST',
+      body: JSON.stringify({
+        name,
+        email,
+        message,
+        gRecaptchaToken: token,
+      }),
+    }).catch((error) => {
+      console.log(error);
+    });
+
+    return response;
+  }
+
   async function handleSubmit() {
     processing = true;
 
+    window.grecaptcha.ready(() => {
+      window.grecaptcha
+        .execute(import.meta.env.VITE_RECAPTCHA_SITE_KEY, { action: 'contactSubmit' })
+        .then(async (token: string) => {
+          const response = await checkRecaptcha(token);
+          if (response && response.status === 200) {
+            await sendEmail();
+          } else {
+            outcome.status = 400;
+            outcome.message = 'ReCaptcha verification failed.';
+          }
+          processing = false;
+        });
+    });
+  }
+
+  async function sendEmail() {
     try {
       const submit = await fetch('/api/contact', {
         method: 'POST',
@@ -47,13 +80,15 @@
       outcome.message = 'Server failed to respond.';
       console.log(error);
     }
-
-    processing = false;
   }
 </script>
 
 <svelte:head>
   <title>Contact</title>
+  <script
+    src="https://www.google.com/recaptcha/api.js?render={import.meta.env.VITE_RECAPTCHA_SITE_KEY}"
+    async
+    defer></script>
 </svelte:head>
 
 <div class="inner">
@@ -70,6 +105,10 @@
 
         {#if outcome.status === 200}
           <Alert type="success">Your message was sent successfully.</Alert>
+        {/if}
+
+        {#if outcome.status === 400}
+          <Alert type="error">ReCAPTCHA failed. Please try again.</Alert>
         {/if}
 
         {#if outcome.status === 500}
