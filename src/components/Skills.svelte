@@ -33,29 +33,23 @@
   </Card>
 
   <div class="narrowContainer">
-    <div class="row">
-      <Card>
-        <CardTitle text={designer.title} textSize="small">
-          <MdBrush slot="icon" />
-        </CardTitle>
-        <div class="row">
-          {#each designer.text as paragraph}
-            <p>{paragraph}</p>
-          {/each}
-        </div>
-      </Card>
+    <Card>
+      <CardTitle text={designer.title} textSize="small">
+        <MdBrush slot="icon" />
+      </CardTitle>
+      {#each designer.text as paragraph}
+        <p>{paragraph}</p>
+      {/each}
+    </Card>
 
-      <Card>
-        <CardTitle text={geek.title} textSize="small">
-          <FaRocket slot="icon" />
-        </CardTitle>
-        <div class="row">
-          {#each geek.text as paragraph}
-            <p>{paragraph}</p>
-          {/each}
-        </div>
-      </Card>
-    </div>
+    <Card>
+      <CardTitle text={geek.title} textSize="small">
+        <FaRocket slot="icon" />
+      </CardTitle>
+      {#each geek.text as paragraph}
+        <p>{paragraph}</p>
+      {/each}
+    </Card>
   </div>
 </div>
 
@@ -71,9 +65,13 @@
 
   .narrowContainer {
     padding: 0 var(--size-extra-large);
+    display: flex;
+    align-items: stretch;
+    gap: var(--size-medium);
 
     @media (max-width: 767px) {
       padding: 0;
+      flex-direction: column;
     }
   }
 </style>

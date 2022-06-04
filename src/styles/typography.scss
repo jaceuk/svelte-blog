@@ -7,10 +7,6 @@
 @import '@fontsource/nunito/600.css';
 @import '@fontsource/nunito/700.css';
 
-body {
-  font-family: 'Nunito', sans-serif;
-}
-
 h1,
 h2,
 h3,
@@ -27,6 +23,7 @@ html {
 }
 
 body {
+  font-family: 'Nunito', sans-serif;
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-regular);
 }
