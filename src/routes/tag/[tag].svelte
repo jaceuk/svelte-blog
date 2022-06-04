@@ -33,7 +33,6 @@
 
 <script lang="ts">
   import Posts from '@components/Posts.svelte';
-  import Pagination from '@components/Pagination.svelte';
 
   export let posts: any;
   export let page: number;

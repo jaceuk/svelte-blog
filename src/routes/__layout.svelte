@@ -6,6 +6,7 @@
   import '../styles/global.scss';
   import '../styles/vars.css';
   import '../styles/markdown.css';
+  import CookieBanner from '@components/CookieBanner.svelte';
   import Navbar from '@components/Navbar.svelte';
   import Header from '@components/Header.svelte';
   import HomeTitle from '@components/HomeTitle.svelte';
@@ -15,6 +16,7 @@
   import Footer from '@components/Footer.svelte';
 </script>
 
+<CookieBanner />
 <Navbar />
 <Header>
   {#if $page.url.pathname === '/'}<HomeTitle slot="title" />{/if}

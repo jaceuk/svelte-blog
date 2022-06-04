@@ -22,7 +22,7 @@
     padding: var(--size-base) 0;
     position: absolute;
     width: 100%;
-    z-index: 100;
+    z-index: 50;
   }
 
   .inner {
