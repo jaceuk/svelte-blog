@@ -4,7 +4,6 @@
   import { sineOut } from 'svelte/easing';
 
   let cookieConsent = (browser && !!localStorage.getItem('cookieConsent')) || false;
-  console.log(typeof cookieConsent);
 
   function handleAccept() {
     cookieConsent = true;
