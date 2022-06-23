@@ -35,12 +35,13 @@
     padding-bottom: var(--size-medium);
   }
 
-  .button {
+  a {
     height: 61px;
 
     &[aria-disabled='true'] {
       cursor: default;
       opacity: 0.2;
+      pointer-events: none;
 
       &:hover {
         background-color: var(--color-white);
