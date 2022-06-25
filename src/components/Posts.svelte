@@ -8,7 +8,7 @@
   export let tag: string = '';
 </script>
 
-<div class="inner">
+<div class={`inner ${page > 1 && 'no-title'}`}>
   <div class="grid">
     {#each posts as post}
       <PostCard {post} />
@@ -23,8 +23,8 @@
     padding-bottom: var(--size-medium);
     background: url('../images/vader.png') no-repeat right bottom;
 
-    @media (max-width: 767px) {
-      grid-template-columns: 1fr;
+    &.no-title {
+      margin-top: calc(var(--size-extra-large) * -2);
     }
   }
 
@@ -35,5 +35,9 @@
     grid-template-rows: auto;
     grid-template-columns: 1fr 1fr;
     padding-bottom: var(--size-large);
+
+    @media (max-width: 767px) {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

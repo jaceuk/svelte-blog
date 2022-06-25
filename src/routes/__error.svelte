@@ -19,7 +19,6 @@
   import stormTroopers from '@images/404.jpg';
 
   export let status: number;
-  export let message: string;
 </script>
 
 <div class="inner">

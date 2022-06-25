@@ -14,9 +14,8 @@
   export async function load({ fetch, params, url }: IFetch) {
     const page = parseInt(url.searchParams.get('page') !== null ? url.searchParams.get('page') : '1');
     const tagParam = params.tag;
-    const formattedTag = formatForDisplay(tagParam);
-    tag.set(formattedTag);
-    const response = await fetch(`/api/posts.json?page=${page}&tag=${formattedTag}`);
+    tag.set(tagParam);
+    const response = await fetch(`/api/posts.json?page=${page}&tag=${tagParam}`);
     const posts = await response.json();
 
     return {
