@@ -20,11 +20,16 @@ export async function get({ url }: IUrl) {
     iterablePostFiles.map(async ([filename, resolver]) => {
       const { metadata } = await resolver();
 
+      const lowerCaseTags = metadata.tags.map((tag: string) => {
+        return tag.toLowerCase();
+      });
+
       return {
         title: metadata.title,
         date: metadata.date,
         excerpt: metadata.excerpt,
         tags: metadata.tags,
+        lowerCaseTags: lowerCaseTags,
         slug: basename(filename, '.md'),
       };
     }),
@@ -33,7 +38,7 @@ export async function get({ url }: IUrl) {
   let filteredPosts: any;
   if (tag) {
     filteredPosts = allPosts.filter((post: any) => {
-      return post.tags.includes(tag);
+      return post.lowerCaseTags.includes(tag);
     });
   } else {
     filteredPosts = allPosts;

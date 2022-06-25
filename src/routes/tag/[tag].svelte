@@ -14,9 +14,8 @@
   export async function load({ fetch, params, url }: IFetch) {
     const page = parseInt(url.searchParams.get('page') !== null ? url.searchParams.get('page') : '1');
     const tagParam = params.tag;
-    const formattedTag = formatForDisplay(tagParam);
-    tag.set(formattedTag);
-    const response = await fetch(`/api/posts.json?page=${page}&tag=${formattedTag}`);
+    tag.set(tagParam);
+    const response = await fetch(`/api/posts.json?page=${page}&tag=${tagParam}`);
     const posts = await response.json();
 
     return {
@@ -33,6 +32,8 @@
 
 <script lang="ts">
   import Posts from '@components/Posts.svelte';
+  import Header from '@components/Header.svelte';
+  import TagTitle from '@components/TagTitle.svelte';
 
   export let posts: any;
   export let page: number;
@@ -43,5 +44,9 @@
 <svelte:head>
   <title>Blog</title>
 </svelte:head>
+
+<Header>
+  <TagTitle />
+</Header>
 
 <Posts {posts} {page} tag={tagParam} {postCount} />

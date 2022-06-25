@@ -42,6 +42,7 @@
 <script lang="ts">
   import Card from '@components/Card.svelte';
   import PostMeta from '@components/PostMeta.svelte';
+  import Header from '@components/Header.svelte';
 
   export let page: any, meta: any;
 </script>
@@ -50,6 +51,8 @@
   <title>{meta.title}</title>
   <meta name="description" content={meta.excerpt} />
 </svelte:head>
+
+<Header />
 
 <div class="inner">
   <div class="narrowContainer">

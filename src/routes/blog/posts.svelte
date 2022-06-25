@@ -22,6 +22,8 @@
 
 <script lang="ts">
   import Posts from '@components/Posts.svelte';
+  import Header from '@components/Header.svelte';
+  import BlogTitle from '@components/BlogTitle.svelte';
 
   export let posts: any;
   export let page: number;
@@ -31,5 +33,9 @@
 <svelte:head>
   <title>Blog</title>
 </svelte:head>
+
+<Header>
+  {#if page === 1}<BlogTitle />{/if}
+</Header>
 
 <Posts {posts} {page} {postCount} />
