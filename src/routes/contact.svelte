@@ -5,6 +5,8 @@
   import Overlay from '@components/Overlay.svelte';
   import Loader from '@components/Loader.svelte';
   import Alert from '@components/Alert.svelte';
+  import Header from '@components/Header.svelte';
+  import ContactTitle from '@components/ContactTitle.svelte';
 
   interface IOutcome {
     status: number;
@@ -90,6 +92,10 @@
     async
     defer></script>
 </svelte:head>
+
+<Header>
+  <ContactTitle />
+</Header>
 
 <div class="inner">
   <div class="narrowContainer">
