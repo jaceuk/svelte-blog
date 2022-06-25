@@ -8,7 +8,7 @@
   export let tag: string = '';
 </script>
 
-<div class={`inner ${page > 1 && 'no-title'}`}>
+<div class="inner">
   <div class="grid">
     {#each posts as post}
       <PostCard {post} />
@@ -22,10 +22,6 @@
     margin-top: calc(var(--size-extra-large) * -1);
     padding-bottom: var(--size-medium);
     background: url('../images/vader.png') no-repeat right bottom;
-
-    &.no-title {
-      margin-top: calc(var(--size-extra-large) * -2);
-    }
   }
 
   .grid {
